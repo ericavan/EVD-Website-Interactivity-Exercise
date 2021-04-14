@@ -47,9 +47,21 @@
 
         console.log("TRIP", trip)
 
+        var f = trip["driver"]["first_name"]
+        var l = trip["driver"]["last_name"]
+        var fullName = f + " " + l
+        console.log("DRIVER:", fullName)
 
+        //find/log number of stops that there are
+        console.log("STOPS:",trip["stops"].length)
 
+        console.log("FIRST STOP:", trip["stops"][0]["destination"])
 
+        trip["stops"].forEach(function(item){
+           // console.log("--------")
+           // console.log(item);
+            console.log(item["passenger"])
+        })
 
 
     </script>
