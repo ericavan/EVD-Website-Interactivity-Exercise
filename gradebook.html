@@ -12,7 +12,7 @@
 
     <div id="gradebook-app">
     </div>
-
+    <script src="https://d3js.org/d3-array.v2.min.js"></script>
     <script type="text/javascript">
 
         //
@@ -42,7 +42,31 @@
 
         console.log("GRADEBOOK", gradebook)
 
+        console.log("DOWNLOAD DATE:", gradebook["downloadDate"] )
+        console.log("NUMBER OF STUDENTS:", gradebook["students"].length)
 
+        //gradebook["students"].forEach(function(item){
+       //     //console.log(item.finalGrade)
+       //     console.log(item["studentId"], item["finalGrade"])
+       // })
+
+       // d. log the average grade without using javascript d3 library
+        var grades = []
+        var gradeSum = 0
+        gradebook["students"].forEach(function(item){
+            grades.push(item["finalGrade"])  //append just the final grade to our array 
+            gradeSum += item["finalGrade"]
+        })
+
+        console.log("GRADES:", grades)
+        console.log("SUM:", gradeSum)
+        console.log("AVG:", gradeSum/grades.length)
+
+
+    // e. log the average grade USING javascript d3 library     
+    
+        console.log("MEAN", d3.median(grades))
+        console.log("MEDIAN", d3.median(grades))
 
 
 
